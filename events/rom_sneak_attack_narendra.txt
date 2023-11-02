@@ -1,0 +1,85 @@
+namespace = XL_MAP_mission
+
+### RIVALS GETTING TOO CLOSE - Trigger Special Project
+country_event = {
+	id = XL_MAP_mission.0001
+	title = "XL_MAP_mission.0001.name"
+	desc = "XL_MAP_mission.0001.desc"
+	picture = GFX_evt_XL_MAP_enterprise_c_into_rift
+	show_sound = event_the_pirate_rebellion
+	location = event_target:dewa_star
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	### Accept Mission
+	option = {
+		name = XL_MAP_mission.0001.a
+		#custom_tooltip = XL_MAP_mission.0001.a.tt
+
+		enable_special_project = {
+			name = "RIVALS_GETTING_TOO_CLOSE"
+			location = event_target:dewa_star
+			owner = event_target:romulan_country
+		}
+	}
+
+	### Decline Mission
+	option = {
+		name = XL_MAP_mission.0001.b
+		#custom_tooltip = XL_MAP_mission.0001.b.tt
+	}
+}
+
+### SNEAK ATTACK NARENDRA - Trigger Special Project
+ship_event = {
+	id = XL_MAP_mission.0002
+	title = "XL_MAP_mission.0002.name"
+	desc = "XL_MAP_mission.0002.desc"
+	picture = GFX_evt_XL_MAP_enterprise_c_into_rift
+	show_sound = event_the_pirate_rebellion
+	location = event_target:narendra_star
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	### Accept Mission
+	option = {
+		name = XL_MAP_mission.0002.a
+		#custom_tooltip = XL_MAP_mission.0001.a.tt
+
+		enable_special_project = {
+			name = "SNEAK_ATTACK_NARENDRA"
+			location = event_target:narendra_star
+			owner = event_target:klingon_country
+		}
+	}
+
+	### Decline Mission
+	option = {
+		name = XL_MAP_mission.0002.b
+		#custom_tooltip = XL_MAP_mission.0001.b.tt
+	}
+}
+
+# fleet_event = {
+# 	id = XL_MAP_mission.0002
+# 	hide_window = yes
+# 	is_triggered_only = yes
+# 	immediate = {
+# 		FROM = {
+# 			set_location = {
+# 				target = event_target:narendra_star
+# 				distance = 5
+# 				angle = random
+# 				direction = in_system
+# 			}
+# 			clear_orders = yes
+# 			clear_fleet_actions = this
+# 		}
+# 	}
+# }
