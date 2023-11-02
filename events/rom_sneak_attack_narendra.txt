@@ -40,7 +40,7 @@ ship_event = {
 	desc = "XL_MAP_mission.0002.desc"
 	picture = GFX_evt_XL_MAP_enterprise_c_into_rift
 	show_sound = event_the_pirate_rebellion
-	location = event_target:narendra_star
+	location = event_target:dewa_star
 
 	is_triggered_only = yes
 
@@ -54,8 +54,8 @@ ship_event = {
 
 		enable_special_project = {
 			name = "SNEAK_ATTACK_NARENDRA"
-			location = event_target:narendra_star
-			owner = event_target:klingon_country
+			location = event_target:dewa_star
+			owner = event_target:romulan_country
 		}
 	}
 

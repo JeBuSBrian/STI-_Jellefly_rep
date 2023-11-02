@@ -29,18 +29,8 @@ special_project = {
 	}
 	
 	on_success = {
-		#ship_event = { id = XL_MAP_mission.0002 }
-		# any_owned_fleet = {
-		# 	fleet_event = { id = XL_MAP_mission.0002 }
-		# }
-
-		# random_system_within_warp_area = {
-		# 	limit = {
-		# 		exists = owner
-		# 		owner = {
-		# 			is_klingon = yes
-		# 		}
-		# 	}
+		# OWNER = {
+			ship_event = { id = XL_MAP_mission.0002 }
 		# }
 
 		if = {
@@ -61,20 +51,6 @@ special_project = {
 				}
 			}
 		}
-
-		# owner = {
-		# 	random_owned_fleet = {
-		# 		# set_location = {
-		# 		# 	target = event_target:narendra_star
-		# 		# 	distance = 5
-		# 		# 	angle = random
-		# 		# 	direction = in_system
-		# 		# }
-		# 		clear_orders = yes
-		# 		clear_fleet_actions = this
-		# 		move_to = event_target:narendra_system
-		# 	}
-		# }
 	}
 	
 	on_fail = {
@@ -91,7 +67,7 @@ special_project = {
 special_project = {
 	key = "SNEAK_ATTACK_NARENDRA"
 	cost = 0
-	days_to_research = 1
+	days_to_research = 30
 	timelimit = 30
 	tech_department = society_technology
 
@@ -116,94 +92,52 @@ special_project = {
 	}
 	
 	on_success = {
-		#ship_event = { id = XL_MAP_mission.0002 }
-		# any_owned_fleet = {
-		# 	fleet_event = { id = XL_MAP_mission.0002 }
-		# }
-
-		# random_system_within_warp_area = {
-		# 	limit = {
-		# 		exists = owner
-		# 		owner = {
-		# 			is_klingon = yes
-		# 		}
-		# 	}
-		# }
-
-		event_target:narendra_star = {
-			solar_system = {
-				solar_system = {
-					save_event_target_as = narendra_system
-				}
-			}
-		}
-
-		event_target:narendra_system = {
-			every_fleet_in_system = {
-				limit = {
-					owner = {
-						is_romulan = yes
-					}
-				}
-				save_event_target_as = romulan_fleet
-				clear_orders = yes
-				clear_fleet_actions = this
-
-				event_target:narendra_system = {
-					every_fleet_in_system = {
-						limit = {
-							OR = {
-								owner = {
-									is_klingon = yes
-								}
-								owner = {
-									is_ufop = yes
-								}
-							}
-						}
-
-						save_event_target_as = rival_fleet
-
-						combat_order = {
-							target = event_target:romulan_fleet
-						}
-					}
-				}
-			}
-		}
-
-		# if = {
-		# 	limit = { exists = event_target:narendra_star }
-		# 	event_target:narendra_star = {
-		# 		solar_system = {
-		# 			solar_system = {
-		# 				save_event_target_as = narendra_system
+		# event_target:narendra_star = {
+		# 	solar_system = {
+		# 		any_system_planet = {
+		# 			limit = {
+		# 				owner = {
+		# 					is_klingon = yes
+		# 				}
+		# 				is_colony = yes
+		# 			}
+	
+		# 			while = {
+		# 				count = 5
+		# 				random_owned_pop = {
+		# 					kill_pop = yes
+		# 				}
 		# 			}
 		# 		}
 		# 	}
-		# 	country_event = { id = XL_MAP_mission.0002 } #Triggers Sneak Attack Special Project
-		# 	event_target:klingon_country = {
-		# 		set_closed_borders = {
-		# 			who = event_target:romulan_country
-		# 			status = no
-		# 			forced = 1
-		# 		}
-		# 	}
 		# }
 
-		# owner = {
-		# 	random_owned_fleet = {
-		# 		# set_location = {
-		# 		# 	target = event_target:narendra_star
-		# 		# 	distance = 5
-		# 		# 	angle = random
-		# 		# 	direction = in_system
-		# 		# }
-		# 		clear_orders = yes
-		# 		clear_fleet_actions = this
-		# 		move_to = event_target:narendra_system
-		# 	}
-		# }
+		closest_system = {
+			limit = {
+				any_system_planet = {
+					has_planet_flag = planet_narendra
+					owner = { is_klingon = yes }
+				}
+			}
+			save_event_target_as = raid_system
+		}
+		event_target:raid_system = {
+			random_system_planet = {
+				limit = {
+					has_planet_flag = planet_narendra
+					owner = { is_klingon = yes }
+				}
+				save_event_target_as = raid_planet
+			}
+		}
+		event_target:raid_planet = {
+			while = {
+				count = 5
+				random_owned_pop = {
+					kill_pop = yes
+				}
+			}
+		}
 	}
 	
 	on_fail = {
