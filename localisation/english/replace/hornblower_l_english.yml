@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
 
  #######################
  #
@@ -12,18 +12,36 @@
  HIGHWAY_COUNTRY_CANNOT_USE: "$TRIGGER_FAIL$ We do not have the means to use the §Y$HIGHWAY_GALACTIC$!."
 
  ################################
- # Star Classes
+ #
+ #      Star Classes
+ #
  ################################
 
  pc_node_black_hole_desc: "While some §HSpacetime Distortions§! appear to be §HBlack Holes§!, they behave in almost opposite ways. By bending the spacetime continuum, they allow for travel through the §HGalaxy§! via §H$HIGHWAY_GALACTIC$§!."
 
  ################################
- # Ferengi Localisations
+ #
+ #      Ferengi Localisations
+ #
  ################################
 
-gov_fer:0 "Nagus Government"
-gov_fer_desc:0 "The Ferengi are ruled by a Grand Nagus, who ultimately has control over every financial decision in the Ferengi Alliance"
-auth_dictatorial_fer_alliance:0 "Olicharhical"
-auth_dictatorial_fer_alliance_desc:0 "Upon the death or retirement of a Grand Nagus, he will select a new Grand Nagus"
-RT_NAGUS:0 "Grand Nagus"
-RT_NAGUS_FEMALE:0 "$Grand Nagus$"
+ gov_fer: "Nagus Government"
+ gov_fer_desc: "The Ferengi are ruled by a Grand Nagus, who ultimately has control over every financial decision in the Ferengi Alliance"
+ auth_dictatorial_fer_alliance: "Olicharhical"
+ auth_dictatorial_fer_alliance_desc: "Upon the death or retirement of a Grand Nagus, he will select a new Grand Nagus"
+ RT_NAGUS: "Grand Nagus"
+ RT_NAGUS_FEMALE: "$RT_NAGUS$"
+
+ ################################
+ #
+ #      Sneak Attack on Narendra
+ #
+ ################################
+
+ XL_MAP_mission.0001.name: "Rivals Getting Too Close"
+ XL_MAP_mission.0001.desc: "The Federation flagship, §RU.S.S. Enterprise-C§! has for too long been a diplomatic annoyance. We know it will be in Klingon space, near the §YNeutral Zone§!. There is a plan in place to force it to retreat from battle, making the Federation look like cowards in the eyes of the Klingons, souring their relations. We need you to make sure the plan succeeds. Assemble a fleet near §GNarendra§!, and we'll be ready to strike!"
+ XL_MAP_mission.0001.a: "They must be stopped."
+ XL_MAP_mission.0001.b: "It's too risky."
+
+ SNEAK_ATTACK_NARENDRA: "Rivals Getting Too Close"
+ SNEAK_ATTACK_NARENDRA_DESC: "The §GTal Shiar§! has requested military support to bolster their own forces in the effort to divide our rivals. Though the fighting will be bitter, the timeline to victory will be far shorter with our help."

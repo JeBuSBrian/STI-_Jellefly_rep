@@ -1,0 +1,217 @@
+namespace = XL_MAP_mission
+
+# RIVALS GETTING TOO CLOSE
+special_project = {
+	key = "RIVALS_GETTING_TOO_CLOSE"
+	cost = 0
+	days_to_research = 30
+	timelimit = 720
+	tech_department = society_technology
+
+	# Dynamic Images (Major Power variants)
+	# COUNTRY SCOPE ALWAYS (event_scope = ship_event does not matter)
+	picture = {
+		trigger = { is_romulan = yes }
+		picture = GFX_evt_empire_fleet_romulan
+	}
+	# Default Image
+	picture = GFX_evt_ship_base_pirates
+	event_scope = ship_event
+	
+	delete_on_finish = yes
+
+	location = yes
+
+	requirements = {
+		shipclass_military = 1 #4
+		#fleet_power = 1000
+		#leader = admiral
+	}
+	
+	on_success = {
+		#ship_event = { id = XL_MAP_mission.0002 }
+		# any_owned_fleet = {
+		# 	fleet_event = { id = XL_MAP_mission.0002 }
+		# }
+
+		# random_system_within_warp_area = {
+		# 	limit = {
+		# 		exists = owner
+		# 		owner = {
+		# 			is_klingon = yes
+		# 		}
+		# 	}
+		# }
+
+		if = {
+			limit = { exists = event_target:narendra_star }
+			event_target:narendra_star = {
+				solar_system = {
+					solar_system = {
+						save_event_target_as = narendra_system
+					}
+				}
+			}
+			ship_event = { id = XL_MAP_mission.0002 } #Triggers Sneak Attack Special Project
+			event_target:klingon_country = {
+				set_closed_borders = {
+					who = event_target:romulan_country
+					status = no
+					forced = 1
+				}
+			}
+		}
+
+		# owner = {
+		# 	random_owned_fleet = {
+		# 		# set_location = {
+		# 		# 	target = event_target:narendra_star
+		# 		# 	distance = 5
+		# 		# 	angle = random
+		# 		# 	direction = in_system
+		# 		# }
+		# 		clear_orders = yes
+		# 		clear_fleet_actions = this
+		# 		move_to = event_target:narendra_system
+		# 	}
+		# }
+	}
+	
+	on_fail = {
+		if = {
+			limit = {
+				exists = OWNER
+			}
+			OWNER = { country_event = { id = mission.86 } }
+		}
+	}
+}
+
+# SNEAK ATTACK ON NARENDRA III
+special_project = {
+	key = "SNEAK_ATTACK_NARENDRA"
+	cost = 0
+	days_to_research = 1
+	timelimit = 30
+	tech_department = society_technology
+
+	# Dynamic Images (Major Power variants)
+	# COUNTRY SCOPE ALWAYS (event_scope = ship_event does not matter)
+	picture = {
+		trigger = { is_romulan = yes }
+		picture = GFX_evt_empire_fleet_romulan
+	}
+	# Default Image
+	picture = GFX_evt_ship_base_pirates
+	event_scope = ship_event
+	
+	delete_on_finish = yes
+
+	location = yes
+
+	requirements = {
+		shipclass_military = 1 #4
+		#fleet_power = 1000
+		#leader = admiral
+	}
+	
+	on_success = {
+		#ship_event = { id = XL_MAP_mission.0002 }
+		# any_owned_fleet = {
+		# 	fleet_event = { id = XL_MAP_mission.0002 }
+		# }
+
+		# random_system_within_warp_area = {
+		# 	limit = {
+		# 		exists = owner
+		# 		owner = {
+		# 			is_klingon = yes
+		# 		}
+		# 	}
+		# }
+
+		event_target:narendra_star = {
+			solar_system = {
+				solar_system = {
+					save_event_target_as = narendra_system
+				}
+			}
+		}
+
+		event_target:narendra_system = {
+			every_fleet_in_system = {
+				limit = {
+					owner = {
+						is_romulan = yes
+					}
+				}
+				save_event_target_as = romulan_fleet
+				clear_orders = yes
+				clear_fleet_actions = this
+
+				event_target:narendra_system = {
+					every_fleet_in_system = {
+						limit = {
+							OR = {
+								owner = {
+									is_klingon = yes
+								}
+								owner = {
+									is_ufop = yes
+								}
+							}
+						}
+
+						save_event_target_as = rival_fleet
+
+						combat_order = {
+							target = event_target:romulan_fleet
+						}
+					}
+				}
+			}
+		}
+
+		# if = {
+		# 	limit = { exists = event_target:narendra_star }
+		# 	event_target:narendra_star = {
+		# 		solar_system = {
+		# 			solar_system = {
+		# 				save_event_target_as = narendra_system
+		# 			}
+		# 		}
+		# 	}
+		# 	country_event = { id = XL_MAP_mission.0002 } #Triggers Sneak Attack Special Project
+		# 	event_target:klingon_country = {
+		# 		set_closed_borders = {
+		# 			who = event_target:romulan_country
+		# 			status = no
+		# 			forced = 1
+		# 		}
+		# 	}
+		# }
+
+		# owner = {
+		# 	random_owned_fleet = {
+		# 		# set_location = {
+		# 		# 	target = event_target:narendra_star
+		# 		# 	distance = 5
+		# 		# 	angle = random
+		# 		# 	direction = in_system
+		# 		# }
+		# 		clear_orders = yes
+		# 		clear_fleet_actions = this
+		# 		move_to = event_target:narendra_system
+		# 	}
+		# }
+	}
+	
+	on_fail = {
+		if = {
+			limit = {
+				exists = OWNER
+			}
+			OWNER = { country_event = { id = mission.86 } }
+		}
+	}
+}

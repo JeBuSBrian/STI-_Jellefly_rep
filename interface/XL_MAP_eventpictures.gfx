@@ -1,0 +1,26 @@
+	##############################
+	#
+	#		Event Pictures
+	#
+	##############################
+
+
+### Background & Window Illustrations
+# Some Background illustrations have a different file path.
+# They are located in a different folder.
+
+spriteTypes = {
+	########## Enterprise-C #############
+	spriteType = {
+		name = "GFX_evt_XL_MAP_enterprise_c"
+		texturefile = "gfx/event_pictures/XL_MAP_enterprise_c.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = no
+	}
+  spriteType = {
+		name = "GFX_evt_XL_MAP_enterprise_c_into_rift"
+		texturefile = "gfx/event_pictures/XL_MAP_enterprise_c_into_rift.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = no
+	}
+}
