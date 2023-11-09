@@ -1,0 +1,26 @@
+namespace = borg_crisis
+
+@crisis_init_wait_time = 720			# HRB_TODO: 2 years
+
+### Triggering Event 
+country_event = {
+	id = borg_crisis.10
+	hide_window = yes
+	fire_only_once = yes
+
+	trigger = {
+		is_ai = no
+		is_tutorial_active = no
+	}
+
+	immediate = {
+		# This adds the current_player_homeworld event target to the namespace
+		define_crisis_current_event_targets = yes
+		
+		# HRB_NOTE: this should be done at a certain point of the storyline
+		establish_communications_with_the_borg = yes
+
+		# Triggers Subspace Disturbance
+		country_event = { id = borg_crisis.20 days = 1825 random = @crisis_init_wait_time}
+	}
+}

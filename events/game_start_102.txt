@@ -10,7 +10,7 @@ event = {
 			set_truce = {
 				target = event_target:romulan_country
 				type = none
-				start_date = 2345.06.03
+				start_date = 2343.06.03
 			}
 		}
 	}
