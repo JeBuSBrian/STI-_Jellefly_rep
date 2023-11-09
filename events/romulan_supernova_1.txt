@@ -1,0 +1,21 @@
+namespace = romulan_supernova
+
+###
+# Chain Event Initializer
+country_event = {
+	id = romulan_supernova.1
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:romulan_homeworld
+	}
+
+	immediate = {
+		log = "Romulan Supernova Initializer Triggered!"
+		event_target:romulan_homeworld = {
+			planet_event = { id = romulan_supernova.2 days = 8000 } # Potential Supernova detected ~ in 22 years ~ year 2366
+		}
+	}
+}

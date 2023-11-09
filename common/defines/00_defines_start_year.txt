@@ -1,0 +1,3 @@
+	NGameplay = {
+		START_YEAR = 2344						# starting hornblower date
+	}

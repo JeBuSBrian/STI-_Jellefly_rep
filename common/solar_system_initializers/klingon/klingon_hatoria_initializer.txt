@@ -1,7 +1,7 @@
 klingon_hatoria_initializer = {
 	name = "NAME_Hatoria"
 	class = "rl_all_stars"
-	flags = { outpost klingon_system klingon }
+	flags = { outpost klingon_system klingon hatoria }
 	usage = static_system_init
 
 	planet = {
@@ -17,6 +17,8 @@ klingon_hatoria_initializer = {
 			change_pc = pc_m_star
 			set_deposit = d_deuterium_4
 			set_deposit = d_research_4 #HRB_Research_Rework
+
+			save_global_event_target_as = hatoria_star
 		}
 
 		late_init_effect = { 

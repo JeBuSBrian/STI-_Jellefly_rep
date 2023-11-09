@@ -1,5 +1,10 @@
 {
 	"editor.insertSpaces": false,
 	"prettier.endOfLine": "crlf",
-	"files.defaultLanguage": "paradox"
+	"files.defaultLanguage": "paradox",
+	"workbench.editor.historyBasedLanguageDetection": true,
+	"workbench.editor.languageDetection": true,
+	"files.associations": {
+    "*.txt": "paradox"
+  },
 }
