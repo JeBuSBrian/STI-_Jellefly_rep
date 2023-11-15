@@ -1,10 +1,32 @@
-klingon_ogat_initializer = {
-	name = "NAME_Ogat"
-	class = sc_b
-	flags = { klingon klingon_system colony ogat }
+klingon_mempa_initializer = {
+	name = "NAME_Mempa"
+	class = sc_binary_11
+	flags = { klingon klingon_system colony mempa_colony mempa }
 
 	planet = {
-		name = "NAME_Ogat_A"
+		name = "NAME_Mempa-A"
+		count = 1
+		class = star
+		orbit_distance = 40
+		size = { min = 10 max = 30 }
+		has_ring = no
+
+		init_effect = { 
+			set_planet_flag = ignore_startup_effect
+			change_pc = pc_g_star
+			set_deposit = d_energy_10
+			save_global_event_target_as = mempa_star
+		}
+
+		late_init_effect = {
+			create_mining_station = {
+				owner = event_target:klingon_country
+			}
+		}
+	}
+
+	planet = {
+		name = "NAME_Mempa-B"
 		count = 1
 		class = star
 		orbit_distance = 0
@@ -12,14 +34,13 @@ klingon_ogat_initializer = {
 		has_ring = no
 
 		init_effect = { 
-			change_pc = pc_m_star 
+			change_pc = pc_m_star
 			set_planet_flag = starting_mining_target
 			set_planet_flag = starting_deposit
 			set_deposit = d_energy_10
-			save_global_event_target_as = ogat_star
 		}
 
-		late_init_effect = { 
+		late_init_effect = {
 			create_mining_station = {
 				owner = event_target:klingon_country
 			}
@@ -35,30 +56,17 @@ klingon_ogat_initializer = {
 	}
 	
 	planet = {
-		name = "NAME_Ogat"
+		name = "NAME_Mempa"
 		orbit_distance = 35
 		class = pc_arid
 		subclass = psc_class_m
-		size = 16
+		size = 17
 		modifiers = none
 		has_ring = no
-		flags = { planet_ogat bespoke_colony mapo_colony }
-		
-		moon = {
-			name = "NAME_Ogat_A"
-			count = 1
-			orbit_distance = 6
-			class = rl_unhabitable_planets
-			has_ring = no
-			size = 5
-		}
-		
-		init_effect = {
-			prevent_anomaly = yes
-		}
+		flags = { planet_mempa bespoke_colony mapo_colony }
 
 		late_init_effect = {
-			create_ogat_colony = yes
+			create_medium_colony = yes
 		}
 	}
 

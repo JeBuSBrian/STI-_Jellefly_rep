@@ -1,7 +1,7 @@
-quvat_system_initializer = {
+klingon_quvat_initializer = {
 	name = "NAME_QuVat"
 	class = "rl_all_stars"
-	flags = { outpost klingon_system klingon }
+	flags = { outpost klingon_system klingon quvat }
 	usage = static_system_init
 
 	planet = {
@@ -15,6 +15,9 @@ quvat_system_initializer = {
 		init_effect = {
 			set_planet_flag = ignore_startup_effect
 			change_pc = pc_g_star
+
+			save_global_event_target_as = quvat_star
+
 			set_deposit = d_deuterium_4
 			set_deposit = d_research_4 #HRB_Research_Rework
 		}
@@ -56,12 +59,10 @@ quvat_system_initializer = {
 		orbit_distance = { min = 20 max = 30 }
 		size = 7
 		home_planet = no
+		flags = { planet_quvat bespoke_colony mapo_colony }
 
-		init_effect = {
-			add_modifier = {
-				modifier = pre_existing_colony
-				days = -1
-			}			
+		late_init_effect = {
+			create_large_colony = yes
 		}
 	}
 

@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
 
  #######################
  #
@@ -36,3 +36,9 @@ l_english:
  NAME_Dderidex_hero: "Haakona"
  NAME_Dderidex_hero.name: "Haakona"
  dderidex_hero-design: "I.R.W. Haakona"
+
+ ################################
+ # Start Screen Messages
+ ################################
+
+ START_SCREEN_KLINGON: "The Klingon Empire's economy is still reeling from the disaster at Praxis, 50 years ago. The Empire has a hard time maintaining a fleet capable of defending its vast territory.\n\nNew colonies have been established in the resource-rich systems between Qo'nos and Romulus. But the Romulan vultures are circling, straying near the border systems, sometimes even briefly decloaking above our colonies!\n\nMeanwhile, discontented Houses are calling for attacks on the weaker minor powers, subjugating them for their resources. Some are even in favor of taking back territory that the UFP has claimed.\n\nTensions are rising, and the only way forward is by surviving the coming flashpoints.\n"

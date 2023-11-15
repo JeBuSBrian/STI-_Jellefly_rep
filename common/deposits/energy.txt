@@ -1,0 +1,13 @@
+d_energy_20 = {
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			energy = 20
+		}
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+}

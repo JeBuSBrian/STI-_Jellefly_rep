@@ -1,25 +1,23 @@
-klingon_ogat_initializer = {
-	name = "NAME_Ogat"
-	class = sc_b
-	flags = { klingon klingon_system colony ogat }
+klingon_nomat_initializer = {
+	name = "NAME_No-Mat"
+	class = sc_a
+	flags = { klingon klingon_system colony nomat_colony nomat }
 
 	planet = {
-		name = "NAME_Ogat_A"
+		name = "NAME_No-Mat"
 		count = 1
 		class = star
-		orbit_distance = 0
-		size = { min = 20 max = 30 }
+		size = { min = 10 max = 30 }
 		has_ring = no
 
 		init_effect = { 
-			change_pc = pc_m_star 
-			set_planet_flag = starting_mining_target
-			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			change_pc = pc_a_star
 			set_deposit = d_energy_10
-			save_global_event_target_as = ogat_star
+			save_global_event_target_as = nomat_star
 		}
 
-		late_init_effect = { 
+		late_init_effect = {
 			create_mining_station = {
 				owner = event_target:klingon_country
 			}
@@ -29,36 +27,23 @@ klingon_ogat_initializer = {
 	change_orbit = 20
 	
 	planet = {
-		count = 2
+		count = 3
 		orbit_distance = { min = 30 max = 45 }
 		class = rl_unhabitable_planets
 	}
 	
 	planet = {
-		name = "NAME_Ogat"
+		name = "NAME_No-Mat"
 		orbit_distance = 35
 		class = pc_arid
 		subclass = psc_class_m
-		size = 16
+		size = 17
 		modifiers = none
 		has_ring = no
-		flags = { planet_ogat bespoke_colony mapo_colony }
-		
-		moon = {
-			name = "NAME_Ogat_A"
-			count = 1
-			orbit_distance = 6
-			class = rl_unhabitable_planets
-			has_ring = no
-			size = 5
-		}
-		
-		init_effect = {
-			prevent_anomaly = yes
-		}
+		flags = { planet_nomat bespoke_colony mapo_colony }
 
 		late_init_effect = {
-			create_ogat_colony = yes
+			create_large_colony = yes
 		}
 	}
 

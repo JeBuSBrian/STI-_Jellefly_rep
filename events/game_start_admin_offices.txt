@@ -14,11 +14,14 @@ planet_event = {
 					trigger = has_country_id
 					ufop = {
 						log = "Generating Admin Offices for the UFOP"
-						PREV = { generate_start_building_admin_offices = yes } 
+						PREV = { generate_start_building_admin_offices = yes }
 					}
 					klingon = {
 						log = "Generating Admin Offices for the Klingons"
-						PREV = { generate_start_building_admin_offices = yes } 
+						PREV = {
+							generate_start_building_admin_offices = yes
+							generate_start_building_admin_offices = yes
+						}
 					}
 					#default = {
 					#	log = "Generating Admin Offices for the [this.GetName]s"

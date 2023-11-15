@@ -31,10 +31,14 @@ klingon_tygokor_initializer = {
 		count = 1
 		class = pc_desert
 		subclass = psc_class_l
-		size = 12
+		size = 3
 		orbit_distance = 30
 		orbit_angle = 170
 		has_ring = no
+
+		init_effect = {
+			save_global_event_target_as = tygokor_planet
+		}
 	}
 
 	planet = {
@@ -57,8 +61,19 @@ klingon_tygokor_initializer = {
 
 	late_init_effect = {
 		create_starbase = {
-			size = starbase_outpost
+			size = starbase_starport
 			owner = event_target:klingon_country
+			module = "gun_battery"
+			module = "shipyard"
+			building = "crew_quarters"
 		}
+		random_fleet_in_system = {
+			set_location = {
+				target = event_target:tygokor_planet
+				distance = 10
+				angle = random
+			}
+		}
+		add_defense_platforms = yes
 	}
 }
