@@ -1,0 +1,124 @@
+create_large_colony = {
+	prevent_anomaly = yes
+	set_owner = ROOT
+	set_colony_type = col_default
+
+	add_building = building_capital
+	add_building = building_bureaucratic_1
+
+	if = {
+		limit = {
+			owner = { 
+				is_klingon = yes
+			}
+		}
+		add_building = building_housing_blocks_klingon
+	}
+	else_if = {
+		limit = {
+			owner = { 
+				is_ufop = yes
+			}
+		}
+		add_building = building_housing_quarter_ufop
+	}
+	else_if = {
+		limit = {
+			owner = { 
+				is_romulan = yes
+			}
+		}
+		add_building = building_courtyard_residences_romulan
+	}
+	else_if = {
+		limit = {
+			owner = { 
+				is_cardassian = yes
+			}
+		}
+		add_building = building_communal_lodgings_cardassian
+	}
+
+	while = {
+		count = 1
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_city
+		}
+	}
+	while = {
+		count = 1
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_generator
+		}
+	}
+	while = {
+		count = 1
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_industrial
+		}
+	}
+	while = {
+		count = 1
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_mining
+		}
+	}
+	while = {
+		count = 1
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_farming
+		}
+	}
+
+	# Generate a random number of pops for this size of colony
+	random_list = {
+		1 = {
+			while = {
+				count = 10
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 11
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 12
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 13
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 14
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 15
+				create_pop = {
+					species = random
+				}
+			}
+		}
+	}
+}

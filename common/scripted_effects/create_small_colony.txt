@@ -1,0 +1,66 @@
+create_small_colony = {
+	prevent_anomaly = yes
+	set_owner = ROOT
+	set_colony_type = col_default
+
+	add_building = building_capital
+
+	while = {
+		count = 0
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_city
+		}
+	}
+	while = {
+		count = 0
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_generator
+		}
+	}
+	while = {
+		count = 0
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_industrial
+		}
+	}
+	while = {
+		count = 0
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_mining
+		}
+	}
+	while = {
+		count = 0
+		add_district_and_planet_size_if_needed_effect = {
+			district = district_farming
+		}
+	}
+
+	# Generate a random number of pops for this size of colony
+	random_list = {
+		1 = {
+			while = {
+				count = 1
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 2
+				create_pop = {
+					species = random
+				}
+			}
+		}
+		1 = {
+			while = {
+				count = 3
+				create_pop = {
+					species = random
+				}
+			}
+		}
+	}
+}

@@ -1,11 +1,11 @@
-klingon_hatoria_initializer = {
-	name = "NAME_Hatoria"
-	class = sc_binary_7
-	flags = { colony klingon_system klingon hatoria }
+klingon_beta_thoridor_initializer = {
+	name = "NAME_Beta_Thoridor"
+	class = "rl_all_stars"
+	flags = { colony klingon_system klingon beta_thoridor }
 	usage = static_system_init
 
 	planet = {
-		name = "NAME_Hatoria"
+		name = "NAME_Beta_Thoridor"
 		class = star
 		orbit_distance = 0
 		orbit_angle = 0
@@ -15,34 +15,11 @@ klingon_hatoria_initializer = {
 		init_effect = {
 			set_planet_flag = ignore_startup_effect
 			change_pc = pc_m_star
-
-			save_global_event_target_as = hatoria_star
-
 			set_planet_flag = starting_mining_target
 			set_planet_flag = starting_deposit
-			set_deposit = d_energy_20
-		}
+			set_deposit = d_energy_10
 
-		late_init_effect = {
-			create_mining_station = {
-				owner = event_target:klingon_country
-			}
-		}
-	}
-	
-	planet = {
-		count = 1
-		class = star
-		orbit_distance = 45
-		orbit_angle = 1
-		size = { min = 20 max = 30 }
-		has_ring = no
-
-		init_effect = { 
-			change_pc = pc_m_star
-			set_planet_flag = starting_mining_target
-			set_planet_flag = starting_deposit
-			set_deposit = d_energy_20
+			save_global_event_target_as = beta_thoridor_star
 		}
 
 		late_init_effect = {
@@ -62,17 +39,17 @@ klingon_hatoria_initializer = {
 	}
 
 	planet = {
-		name = "NAME_Hatoria"
+		name = "NAME_Beta_Thoridor"
 		count = 1
 		class = pc_continental
 		subclass = psc_class_m
 		orbit_distance = { min = 20 max = 30 }
 		size = 7
 		home_planet = no
-		flags = { planet_hatoria bespoke_colony mapo_colony }
+		flags = { planet_beta_thoridor bespoke_colony mapo_colony }
 
 		init_effect = {
-			save_global_event_target_as = hatoria_planet
+			save_global_event_target_as = beta_thoridor_planet
 		}
 
 		late_init_effect = {

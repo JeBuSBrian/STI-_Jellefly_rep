@@ -2,7 +2,7 @@ klingon_boreth_initializer = {
 	name = "NAME_Boreth"
 	class = "sc_m"
 	usage = custom_empire
-	flags = { klingon klingon_system colony }
+	flags = { klingon klingon_system colony boreth}
 	
 	planet = {
 		name = "NAME_Boreth-A"
@@ -14,7 +14,12 @@ klingon_boreth_initializer = {
 		init_effect = { 
 			set_planet_flag = ignore_startup_effect
 			change_pc = pc_m_star 
-			set_deposit = d_energy_5
+
+			save_global_event_target_as = boreth_star
+
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_10
 		}
 
 		late_init_effect = {
@@ -22,6 +27,12 @@ klingon_boreth_initializer = {
 				owner = event_target:klingon_country
 			}
 		}
+	}
+	
+	planet = {
+		count = { min = 2 max = 4 }
+		orbit_distance = { min = 30 max = 45 }
+		class = rl_unhabitable_planets
 	}
 	
 	change_orbit = 20
@@ -32,7 +43,7 @@ klingon_boreth_initializer = {
 
 		subclass = psc_class_m
 		orbit_distance = 25
-		size = 20
+		size = 2
 		starting_planet = yes
 		has_ring = no
 		modifiers = none
@@ -44,7 +55,7 @@ klingon_boreth_initializer = {
 			orbit_distance = 6
 			class = rl_unhabitable_planets
 			has_ring = no
-			size = 5
+			size = 2
 		}
 
 		init_effect = {
@@ -52,14 +63,15 @@ klingon_boreth_initializer = {
 		}
 
 		late_init_effect = {
-			create_boreth_colony = yes
+			create_small_colony = yes
+
+			set_deposit = d_tetryons_1
+			add_deposit = d_veiny_cliffs
+			add_deposit = d_crystalline_caverns
+		
+			add_building = building_capital
+			add_building = building_volcanic_shrine_klingon
 		}
-	}
-	
-	planet = {
-		count = { min = 2 max = 4 }
-		orbit_distance = { min = 30 max = 45 }
-		class = rl_unhabitable_planets
 	}
 
 	init_effect = {

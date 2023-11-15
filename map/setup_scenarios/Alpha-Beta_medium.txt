@@ -4,7 +4,7 @@ bespoke_procedural_scenario = {
 	priority = 2
 
 	# Everything below this line should be copied to tutorial.txt
-	num_stars = 999
+	num_stars = 1280
 	radius = 800
 
 	num_empires = { min = 24 max = 24 }	# HRB_NOTE: { min = 1 max = 24 }, out of this values the game may crash. Use the max value to ensure appear the 4 Mapos.
@@ -385,6 +385,21 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
+		name = "NAME_Beta_Thoridor" position = { x = -93 y = 397 }
+		initializer = klingon_beta_thoridor_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_Chi-dan" position = { x = -100 y = 390 }
+		initializer = klingon_chidan_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_Ganalda" position = { x = -60 y = 431 }
+		initializer = klingon_ganalda_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
 		name = "NAME_Hatoria" position = { x = -106 y = 391 }
 		initializer = klingon_hatoria_initializer spawn_weight = { base = 1 } 
 	}
@@ -395,8 +410,18 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
+		name = "NAME_Mempa" position = { x = -100 y = 411 }
+		initializer = klingon_mempa_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
 		name = "NAME_Narendra" position = { x = -121 y = 389 }
 		initializer = klingon_narendra_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_No-Mat" position = { x = -78 y = 430 }
+		initializer = klingon_nomat_initializer spawn_weight = { base = 1 } 
 	}
 
 	system = {
@@ -442,11 +467,6 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_Archanis" position = { x = -52 y = 422 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_Ardana" position = { x = -39 y = 437 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
@@ -457,22 +477,12 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_Beta_Thoridor" position = { x = -93 y = 397 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_B-Moth" position = { x = -128 y = 438 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
 
 	system = {
 		name = "NAME_Bortas" position = { x = -214 y = 437 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
-		name = "NAME_Chi-dan" position = { x = -100 y = 390 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
 
@@ -502,11 +512,6 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_Ganalda" position = { x = -60 y = 431 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_Ghomha" position = { x = -104 y = 455 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
@@ -532,11 +537,6 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_Mempa" position = { x = -100 y = 411 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_Mutara" position = { x = -95 y = 470 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
@@ -547,17 +547,7 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_No-Mat" position = { x = -78 y = 430 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_Omega_Leonis" position = { x = -67 y = 421 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
-		name = "NAME_Pheben" position = { x = -121 y = 399 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
 
@@ -592,11 +582,6 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
-		name = "NAME_Teroka" position = { x = -98 y = 445 }
-		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
 		name = "NAME_Tribble" position = { x = -25 y = 480 }
 		initializer = klingon_outpost_initializer spawn_weight = { base = 1 } 
 	}
@@ -622,8 +607,23 @@ bespoke_procedural_scenario = {
 	}
 
 	system = {
+		name = "NAME_Pheben" position = { x = -121 y = 399 }
+		initializer = klingon_pheben_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
 		name = "NAME_Qonos" position = { x = -89 y = 429 }
 		initializer = klingon_qonos_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_QuVat" position = { x = -105 y = 421 }
+		initializer = klingon_quvat_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_Teroka" position = { x = -98 y = 445 }
+		initializer = klingon_teroka_initializer spawn_weight = { base = 1 } 
 	}
 
 	system = {
@@ -659,11 +659,6 @@ bespoke_procedural_scenario = {
 	system = {
 		name = "NAME_Pelian" position = { x = 29 y = 369 }
 		initializer = pelian_initializer spawn_weight = { base = 1 } 
-	}
-
-	system = {
-		name = "NAME_QuVat" position = { x = -105 y = 421 }
-		initializer = quvat_system_initializer spawn_weight = { base = 1 } 
 	}
 
 	system = {
@@ -889,6 +884,11 @@ bespoke_procedural_scenario = {
 
 	system = {
 		name = "NAME_Aldebaran" position = { x = -1 y = 418 }
+		initializer = ufop_outpost_initializer spawn_weight = { base = 1 } 
+	}
+
+	system = {
+		name = "NAME_Archanis" position = { x = -52 y = 422 }
 		initializer = ufop_outpost_initializer spawn_weight = { base = 1 } 
 	}
 

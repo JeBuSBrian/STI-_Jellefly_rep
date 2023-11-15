@@ -14,7 +14,7 @@ klingon_narendra_initializer = {
 		init_effect = { 
 			set_planet_flag = ignore_startup_effect
 			change_pc = pc_k_star
-			set_deposit = d_energy_10
+			set_deposit = d_energy_20
 			save_global_event_target_as = narendra_star
 		}
 
@@ -37,7 +37,7 @@ klingon_narendra_initializer = {
 			change_pc = pc_a_star
 			set_planet_flag = starting_mining_target
 			set_planet_flag = starting_deposit
-			set_deposit = d_energy_10
+			set_deposit = d_energy_20
 		}
 
 		late_init_effect = {
@@ -64,7 +64,7 @@ klingon_narendra_initializer = {
 		modifiers = none
 		has_ring = no
 		flags = { planet_narendra bespoke_colony mapo_colony }
-		
+
 		moon = {
 			name = "NAME_Narendra_III_a"
 			count = 1
@@ -74,8 +74,15 @@ klingon_narendra_initializer = {
 			size = 5
 		}
 
+		init_effect = {
+			save_global_event_target_as = narendra_planet
+		}
+
 		late_init_effect = {
-			create_narendra_III_colony = yes
+			create_small_colony = yes
+
+			add_deposit = d_fungal_caves
+			add_deposit = d_rich_mountain
 		}
 	}
 

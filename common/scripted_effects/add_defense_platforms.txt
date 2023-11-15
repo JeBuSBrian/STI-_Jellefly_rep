@@ -1,0 +1,15 @@
+add_defense_platforms = {
+	while = {
+		count = 6
+		random_fleet_in_system = {
+			limit = {
+				is_ship_size = starbase_starport
+			}
+			create_ship = {
+				name = random
+				design = random_existing_design
+				random_existing_design = military_station_small
+			}
+		}
+	}
+}
