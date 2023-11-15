@@ -1,0 +1,209 @@
+namespace = country
+
+# Klingon Initializer
+country_event = {
+	id = country.9001
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = klingon
+	}
+
+	immediate = {
+		hidden_effect = {
+
+			# Destroy any existing military fleets
+			every_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+				}
+				
+				delete_fleet = {
+					target = THIS
+					destroy_template = yes
+				}
+			}
+
+			event_target:klingon_primary_star = {
+				solar_system = {
+					every_fleet_in_system = {
+						limit = {
+							OR = {
+								is_ship_class = shipclass_starbase
+							}
+						}
+						save_global_event_target_as = klingon_military_station
+					}
+
+					random_ship_in_system = {
+						limit = {
+							is_ship_class = shipclass_starbase
+						}
+						save_global_event_target_as = klingon_sol_starbase_ship
+					}
+				}
+			}
+
+			# Move the Science ship to Ogat
+			every_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_science_ship
+				}
+				set_location = {
+					target = event_target:ogat_star
+					distance = 10
+					angle = random
+				}
+			}
+
+			# Move the Constructor ship to Pheben
+			every_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_constructor
+				}
+				set_location = {
+					target = event_target:pheben_star
+					distance = 10
+					angle = random
+				}
+			}
+
+			# Move the Governor ship to Khitomer
+			every_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_governor_ship
+				}
+				set_location = {
+					target = event_target:khitomer_star
+					distance = 10
+					angle = random
+				}
+			}
+
+			# 1st Fleet
+			create_fleet = {
+				name = "NAME_UFOP_First_Fleet"
+				settings = { 
+					spawn_debris = no
+				}
+			
+				effect = {
+					set_fleet_stance = passive
+					set_owner = root
+					
+					while = {
+						count = 2
+
+						log = "Create Klingon 1st Fleet"
+
+						create_ship = {
+							name = ""
+							prefix = no
+							random_existing_design = bird_of_prey
+							#design = "NAME_Bird_Of_Prey" # HRB_TODO: The game is not recognising this design. For now, we are using "random_existing_design = "
+							initial_officers_perc = 1
+							graphical_culture = prev
+						}
+					}
+
+					set_location = event_target:klingon_military_station
+				}
+			}
+
+			last_created_fleet = {
+				save_global_event_target_as = klingon_main_fleet
+			}
+
+			# 2nd Fleet
+			create_fleet = {
+				name = "2nd Fleet"
+				settings = { 
+					spawn_debris = no
+				}
+			
+				effect = {
+					set_fleet_stance = passive
+					set_owner = root
+					
+					while = {
+						count = 2
+
+						log = "Create Klingon 2nd Fleet"
+
+						create_ship = {
+							name = ""
+							prefix = no
+							random_existing_design = bird_of_prey
+							#design = "NAME_Bird_Of_Prey" # HRB_TODO: The game is not recognising this design. For now, we are using "random_existing_design = "
+							initial_officers_perc = 1
+							graphical_culture = prev
+						}
+					}
+
+					set_location = event_target:mempa_star
+				}
+			}
+
+			# 3rd Fleet
+			create_fleet = {
+				name = "3rd Fleet"
+				settings = { 
+					spawn_debris = no
+				}
+			
+				effect = {
+					set_fleet_stance = passive
+					set_owner = root
+					
+					while = {
+						count = 2
+
+						log = "Create Klingon 3rd Fleet"
+
+						create_ship = {
+							name = ""
+							prefix = no
+							random_existing_design = bird_of_prey
+							#design = "NAME_Bird_Of_Prey" # HRB_TODO: The game is not recognising this design. For now, we are using "random_existing_design = "
+							initial_officers_perc = 1
+							graphical_culture = prev
+						}
+					}
+
+					set_location = event_target:ogat_star
+				}
+			}
+
+			# 4th Fleet
+			create_fleet = {
+				name = "4th Fleet"
+				settings = { 
+					spawn_debris = no
+				}
+			
+				effect = {
+					set_fleet_stance = passive
+					set_owner = root
+					
+					while = {
+						count = 2
+
+						log = "Create Klingon 4th Fleet"
+
+						create_ship = {
+							name = ""
+							prefix = no
+							random_existing_design = bird_of_prey
+							#design = "NAME_Bird_Of_Prey" # HRB_TODO: The game is not recognising this design. For now, we are using "random_existing_design = "
+							initial_officers_perc = 1
+							graphical_culture = prev
+						}
+					}
+
+					set_location = event_target:tygokor_planet
+				}
+			}
+		}
+	}
+}

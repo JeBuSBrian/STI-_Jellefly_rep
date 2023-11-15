@@ -1,0 +1,232 @@
+namespace = KR_Border
+
+# Klingon - Romulan Border Raids Start
+event = {
+	id = KR_Border.001
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "Starting KR_Border Raids"
+		event_target:narendra_planet = {
+			save_global_event_target_as = kr_border_next_target
+		}
+		event_target:kr_border_next_target = {
+			planet_event = {
+				id = KR_Border.002
+			}
+		}
+	}
+}
+
+# Klingon - Romulan Border Raids - Raid Delay
+planet_event = {
+	id = KR_Border.002
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "Raid Delay"
+
+		# log = "Target is Klingon"
+		event_target:kr_border_next_target = {
+			planet_event = {
+				id = KR_Border.003
+				days = 190
+				random = 30
+			}
+		}
+	}
+}
+
+# Klingon - Romulan Border Raids - Raid Target Planet
+planet_event = {
+	id = KR_Border.003
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "Try to Raid Target"
+		event_target:kr_border_next_target = {
+			planet_event = {
+				id = KR_Border.004
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = KR_Border.004
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = friendly_fleet_power
+			value = 0
+		}
+
+		# Calculate Klingon fleet power present
+		sum_friendly_fleet_power_at_planet_system = {
+			variable = friendly_fleet_power
+			country = event_target:klingon_country
+		}
+
+		log = "Klingon Fleet Power: [this.friendly_fleet_power]"
+
+		if = {
+			limit = {
+				AND = {
+					has_owner = yes
+					owner = { has_country_flag = klingon }
+					check_variable = {
+						which = friendly_fleet_power
+						value < 750
+					}
+				}
+			}
+			log = "System Raided: [this.GetName] -- owned by [owner.GetName]"
+
+
+			destroy_colony = yes
+			solar_system = {
+				remove_star_flag = colony
+				set_star_flag = former_klingon_colony
+				every_fleet_in_system = {
+					limit = {
+						owner = { NOT = { has_country_flag = romulan } }
+					}
+					destroy_fleet = this
+				}
+			}
+
+			# If this is the first system successfully raided, save it to global variable
+			if = {
+				limit = {
+					count_system = {
+						limit = {
+							has_star_flag = kr_border_raided
+						}
+						count < 1
+					}
+				}
+
+				save_global_event_target_as = kr_border_first_successful_raid
+				log = "First Successful Raid: [this.GetName]"
+			}
+			else = {
+				log = "This is not the first successful raid: [this.GetName]"
+			}
+
+			# Set this system as raided
+			solar_system = {
+				set_star_flag = kr_border_raided
+			}
+		}
+		else = {
+			log = "System NOT Raided: [this.GetName] -- owned by [owner.GetName]"
+		}
+
+		# Now we need to trigger the next system
+		if = {
+			limit = {
+				event_target:kr_border_next_target = {
+					solar_system = {
+						has_star_flag = narendra
+					}
+				}
+			}
+			log = "Narendra was previous target"
+				
+			event_target:hatoria_planet = {
+				save_global_event_target_as = kr_border_next_target
+			}
+
+			log = "Hatoria is next target"
+		}
+		else_if = {
+			limit = {
+				event_target:kr_border_next_target = {
+					solar_system = {
+						has_star_flag = hatoria
+					}
+				}
+			}
+			log = "Hatoria was previous target"
+				
+			event_target:chidan_planet = {
+				save_global_event_target_as = kr_border_next_target
+			}
+
+			log = "Chi'dan is next target"
+		}
+		else_if = {
+			limit = {
+				event_target:kr_border_next_target = {
+					solar_system = {
+						has_star_flag = chidan
+					}
+				}
+			}
+			log = "Chi'dan was previous target"
+				
+			event_target:beta_thoridor_planet = {
+				save_global_event_target_as = kr_border_next_target
+			}
+
+			log = "Beta Thoridor is next target"
+		}
+		else_if = {
+			limit = {
+				event_target:kr_border_next_target = {
+					solar_system = {
+						has_star_flag = beta_thoridor
+					}
+				}
+			}
+			log = "Beta Thoridor was previous target"
+				
+			event_target:khitomer_planet = {
+				save_global_event_target_as = kr_border_next_target
+			}
+
+			log = "Khitomer is next target"
+		}
+		else = {
+			log = "Khitomer was previous target"
+
+			clear_global_event_target = kr_border_next_target
+
+			log = "No next target"
+
+			# Do something here to advance story beyond the raids
+		}
+
+		if = {
+			limit = {
+				event_target:kr_border_next_target = {
+					solar_system = {
+						OR = {
+							has_star_flag = colony
+						}
+					}
+				}
+			}
+			event_target:kr_border_next_target = {
+				planet_event = {
+					id = KR_Border.002
+				}
+			}
+		}
+		else = {
+			log = "Chain is complete"
+			log = "First successful raid: [kr_border_first_successful_raid.GetName]"
+		}
+		
+		clear_variable = friendly_fleet_power
+	}
+}

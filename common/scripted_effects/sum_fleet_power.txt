@@ -1,0 +1,68 @@
+# Parameters
+# variable
+# country
+sum_friendly_fleet_power_in_system = {
+	set_variable = {
+		which = $variable$
+		value = 0
+	}
+	if = {
+		limit = { is_scope_type = galactic_object }
+		if = {
+			limit = {
+				exists = $country$
+				$country$ = { is_scope_type = country }
+			}
+			every_fleet_in_system = {
+				limit = { prev.$country$ = { NOT = { is_hostile = prev.owner } } }
+				export_trigger_value_to_variable = {
+					trigger = fleet_power
+					variable = tmp_internal_$variable$
+				}
+				prev = {
+					change_variable = {
+						which = $variable$
+						value = prev.tmp_internal_$variable$
+					}
+				}
+				clear_variable = tmp_internal_$variable$
+			}
+		}
+		else = { log_error = "sum_friendly_fleet_power: variable provided to parameter 'country' either doesn't exist or isn't a country" }
+	}
+	else = { log_error = "sum_friendly_fleet_power: executing scope is not a system" }
+}
+
+sum_friendly_fleet_power_at_planet_system = {
+	set_variable = {
+		which = $variable$
+		value = 0
+	}
+	if = {
+		limit = { is_scope_type = planet }
+		if = {
+			limit = {
+				exists = $country$
+				$country$ = { is_scope_type = country }
+			}
+			solar_system = {
+				every_fleet_in_system = {
+					limit = { prevprev.$country$ = { NOT = { is_hostile = prevprev.owner } } }
+					export_trigger_value_to_variable = {
+						trigger = fleet_power
+						variable = tmp_internal_$variable$
+					}
+					prevprev = {
+						change_variable = {
+							which = $variable$
+							value = prev.tmp_internal_$variable$
+						}
+					}
+					clear_variable = tmp_internal_$variable$
+				}
+			}
+		}
+		else = { log_error = "sum_friendly_fleet_power: variable provided to parameter 'country' either doesn't exist or isn't a country" }
+	}
+	else = { log_error = "sum_friendly_fleet_power: executing scope is not a system" }
+}
