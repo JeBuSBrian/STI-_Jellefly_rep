@@ -1,11 +1,15 @@
 namespace = KR_Border
 
 # Klingon - Romulan Border Raids Start
-event = {
+country_event = {
 	id = KR_Border.001
 
 	hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = klingon
+	}
 
 	immediate = {
 		log = "Starting KR_Border Raids"
@@ -103,6 +107,8 @@ planet_event = {
 					destroy_fleet = this
 				}
 			}
+			# TODO: Setup Carraya colony
+			create_carraya_penal_colony = yes
 
 			# If this is the first system successfully raided, save it to global variable
 			if = {

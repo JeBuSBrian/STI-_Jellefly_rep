@@ -2,6 +2,7 @@ carraya_system_initializer = {
 	name = "NAME_Carraya"
 	class = "rl_all_stars"
 	usage = static_system_init
+	flags = { carraya }
 
 	planet = {
 		class = star
@@ -16,20 +17,30 @@ carraya_system_initializer = {
 	}
 
 	change_orbit = 30
-	
-	planet = {
-		count = 1
-		class = pc_molten
-		orbit_distance = 16
-		size = 6
-		home_planet = no
-	}
 
 	planet = {
-		count = 6
+		count = 3
 		class = rl_unhabitable_planets
 		size =  { min = 12 max = 28 }
 		orbit_distance = { min = 20 max = 40 }
 		home_planet = no
+	}
+
+	change_orbit = 30
+	
+	planet = {
+		class = pc_tropical
+		subclass = psc_class_m
+		orbit_distance = 16
+		size = { min = 12 max = 24 }
+		deposit_blockers = none
+		home_planet = no
+		entity = "tropical_planet"
+		
+		flags = { planet_carraya }
+
+		init_effect = {
+			prevent_anomaly = yes
+		}
 	}
 }
