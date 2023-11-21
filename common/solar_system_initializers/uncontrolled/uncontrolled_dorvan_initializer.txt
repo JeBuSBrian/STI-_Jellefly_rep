@@ -2,7 +2,7 @@ uncontrolled_dorvan_system_initializer = {
 	name = "NAME_Dorvan"
 	class = "rl_all_stars"
 	usage = static_system_init
-	flags = { dorvan }
+	flags = { dorvan qt_ufop_blocked_neutral_zone qt_cardassian_blocked_neutral_zone }
 
 	planet = {
 		count = 1

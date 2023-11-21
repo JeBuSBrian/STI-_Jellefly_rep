@@ -2,7 +2,7 @@ zone_rom_ufop_eden_initializer = {
 	name = "NAME_Eden"
 	class = "rl_all_stars"
 	usage = static_system_init
-	flags = { eden }
+	flags = { eden qt_ufop_blocked_neutral_zone qt_romulans_blocked_neutral_zone }
 
 	planet = {
 		class = star

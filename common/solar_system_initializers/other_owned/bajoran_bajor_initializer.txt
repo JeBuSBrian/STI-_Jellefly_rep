@@ -2,7 +2,7 @@ bajoran_bajor_initializer = {
 	name = "NAME_Bajoran_System"
 	class = sc_g
 	usage = custom_empire
-	flags = { bajoran bajoran_system bajoran_home_system capital }
+	flags = { bajoran bajoran_system bajoran_home_system capital qt_ufop_blocked_neutral_zone qt_cardassian_blocked_neutral_zone }
 
 	planet = {
 		name = "NAME_Bajor_Star"
@@ -34,7 +34,7 @@ bajoran_bajor_initializer = {
 		modifiers = none
 		has_ring = no
 		home_planet = yes
-		flags = { bajor mipo_colony }
+		flags = { planet_bajor bajor mipo_colony }
 
 		init_effect = {
 			prevent_anomaly = yes

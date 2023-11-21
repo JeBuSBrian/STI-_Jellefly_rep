@@ -14,7 +14,7 @@ cardassian1 = {
 	home_planet_initial_pops = 25
 
 	species = {
-		class = "CRD"
+		class = "HRB"
 		portrait = "cardassian"
 		name = "PRESCRIPTED_species_name_cardassian"
 		plural = "PRESCRIPTED_species_plural_cardassian"

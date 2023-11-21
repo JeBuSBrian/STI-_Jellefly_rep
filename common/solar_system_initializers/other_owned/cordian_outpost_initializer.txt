@@ -1,6 +1,6 @@
 cordian_outpost_initializer = {
 	class = "rl_all_stars"
-	flags = { outpost ufop_system ufop cordian_system}
+	flags = { outpost ufop_system ufop cordian_system qt_cardassian_blocked_neutral_zone }
 	usage = static_system_init
 
 	planet = {

@@ -1,6 +1,6 @@
 zone_rom_ufop_iconia_initializer = {
 	class = "rl_all_stars"
-	flags = { outpost romulan_system romulan }
+	flags = { outpost romulan_system romulan qt_ufop_blocked_neutral_zone qt_romulans_blocked_neutral_zone }
 	usage = static_system_init
 	flags = { iconia }
 

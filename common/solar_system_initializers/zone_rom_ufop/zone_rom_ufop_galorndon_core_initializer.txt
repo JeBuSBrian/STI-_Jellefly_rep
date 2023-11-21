@@ -2,7 +2,7 @@ zone_rom_ufop_galorndon_core_initializer = {
 	name = "NAME_Galorndon_Core"
 	class = "rl_all_stars"
 	usage = static_system_init
-	flags = { galorndon_core }
+	flags = { galorndon_core qt_ufop_blocked_neutral_zone qt_romulans_blocked_neutral_zone }
 
 	planet = {
 		class = star

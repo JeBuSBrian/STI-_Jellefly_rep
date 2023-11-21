@@ -80,6 +80,7 @@ denobula_outpost_initializer = {
 	}
 
 	init_effect = {
+		save_global_event_target_as = denobula_planet
 		every_neighbor_system = { set_star_flag = empire_cluster }
 	}
 

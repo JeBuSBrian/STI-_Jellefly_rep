@@ -2,7 +2,7 @@ uncontrolled_umoth_initializer = {
 	name = "NAME_Umoth"
 	class = "rl_all_stars"
 	usage = static_system_init
-	flags = { umoth }
+	flags = { umoth qt_ufop_blocked_neutral_zone qt_cardassian_blocked_neutral_zone }
 
 	planet = {
 		count = 1

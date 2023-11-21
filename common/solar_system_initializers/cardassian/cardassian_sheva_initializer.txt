@@ -1,8 +1,7 @@
 cardassian_sheva_initializer = {
 	class = "rl_all_stars"
-	flags = { outpost cardassian_system cardassia }
+	flags = { sheva outpost cardassian_system cardassia qt_ufop_blocked_neutral_zone }
 	usage = static_system_init
-  flags = { sheva }
 
 	planet = {
 		class = star
